@@ -1,5 +1,6 @@
-import { useEffect,useState,FC} from "react"
-import { Pelicula } from "../Main";
+import { useEffect,useState} from "react"
+import type { FC } from "react";
+import type { Pelicula } from "../Main";
  interface Props {
     tipos:string;
     slug:string
