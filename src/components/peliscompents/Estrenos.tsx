@@ -3,8 +3,13 @@ import type { FC } from "react";
 import type { Pelicula } from "../Main";
 import"../css/carrusel.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
+
+
+import "swiper/css/pagination"; 
 
  interface Props {
     tipos:string;
@@ -36,19 +41,19 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
   return (
    <>
    <section>
-      
-      <Swiper modules={[Autoplay,Navigation]} spaceBetween={1} navigation  breakpoints={{
+       <h3>{tipos}</h3>
+      <Swiper modules={[Navigation]} spaceBetween={1} navigation   breakpoints={{
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
                 },
                 480: {
                   slidesPerView: 2,
-                  spaceBetween: 10,
+                  spaceBetween: 1,
                 },
                 768: {
-                  slidesPerView: 3,
-                  spaceBetween: 15,
+                  slidesPerView: 2,
+                  spaceBetween: 1,
                 },
                 1024: {
                   slidesPerView: 6,
