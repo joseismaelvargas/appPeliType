@@ -3,9 +3,8 @@ import type { FC } from "react";
 import type { Pelicula } from "../Main";
 import"../css/carrusel.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-
-
+import { Link } from "react-router-dom";
+import {motion} from "framer-motion"
  interface Props {
     tipos:string;
     slug:string
@@ -33,11 +32,13 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
         useEffect(()=>{
                getApi()
         },[])
+        
+   
   return (
    <>
    <section>
        <h3>{tipos}</h3>
-      <Swiper modules={[Navigation]} spaceBetween={1} navigation   breakpoints={{
+      <Swiper  spaceBetween={1}   breakpoints={{
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
@@ -51,17 +52,17 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
                   spaceBetween: 1,
                 },
                 1024: {
-                  slidesPerView: 6,
-                  spaceBetween: 1,
+                  slidesPerView: 5.5,
+                  spaceBetween: 2,
                 },
               }} className="carrusel ">
       
          {
             estrenos.map((item)=>
                <SwiperSlide key={item.id}>
-                     <div className="poster">
-                         <img className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="title">{item.title}</p>
-                     </div>
+                     <Link to={`/infopelicula/${item.id}`} className="poster">
+                         <motion.img   whileHover={{scale:1.1}}  initial="inicial" animate="animate" className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="nunito-uniquifier-text">{item.title}</p>
+                     </Link>
                      
                </SwiperSlide>
             )
