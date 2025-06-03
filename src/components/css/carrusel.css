@@ -26,7 +26,7 @@
     font-family: "Nunito", serif;
     font-optical-sizing: auto;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 18px;
     font-style: normal;
 }
 @media(min-width:758px){
@@ -37,9 +37,10 @@
      }
     .carrusel{
         width: 1300px;
+        height: 450px;
         margin: 10px auto;
        padding: 30px;
-        border: solid green;
+    
         display: flex ;
         overflow-x: auto;
     }

@@ -61,7 +61,10 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
             estrenos.map((item)=>
                <SwiperSlide key={item.id}>
                      <Link to={`/infopelicula/${item.id}`} className="poster">
-                         <motion.img   whileHover={{scale:1.1}}  initial="inicial" animate="animate" className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="nunito-uniquifier-text">{item.title}</p>
+                      <motion.div whileHover={{scale:1.1}}>
+                           <motion.img  initial="inicial" animate="animate" className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="nunito-uniquifier-text">{item.title}</p>
+                      </motion.div>
+                      
                      </Link>
                      
                </SwiperSlide>
