@@ -1,6 +1,11 @@
 import { useEffect,useState} from "react"
 import type { FC } from "react";
 import type { Pelicula } from "../Main";
+import"../css/carrusel.css"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+
+
  interface Props {
     tipos:string;
     slug:string
@@ -29,9 +34,41 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
                getApi()
         },[])
   return (
-    <div>
-      {tipos}
-    </div>
+   <>
+   <section>
+      
+      <Swiper modules={[Autoplay,Navigation]} spaceBetween={1} navigation  breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 15,
+                },
+                1024: {
+                  slidesPerView: 6,
+                  spaceBetween: 1,
+                },
+              }} className="carrusel ">
+      
+         {
+            estrenos.map((item)=>
+               <SwiperSlide key={item.id}>
+                     <div className="poster">
+                         <img className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="title">{item.title}</p>
+                     </div>
+                     
+               </SwiperSlide>
+            )
+         }
+      </Swiper>
+   </section>
+   </>
   )
 }
 

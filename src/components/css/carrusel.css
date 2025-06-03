@@ -1,0 +1,17 @@
+.poster{
+    height: 200px;
+    width: 200px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.carrusel{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    height: 400px;
+
+}
