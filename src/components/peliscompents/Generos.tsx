@@ -1,44 +1,39 @@
-import { useEffect,useState} from "react"
+import { useState,useEffect } from "react";
 import type { FC } from "react";
 import type { Pelicula } from "../Main";
-import"../css/carrusel.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from "react-router-dom";
 import {motion} from "framer-motion"
- interface Props {
-    tipos:string;
-    slug:string
+interface Genero{
+    tipo:string;
+    idgenero:number
+}
+
+
+
+export const Generos:FC<Genero>=({tipo,idgenero})=>{
+ const [Generosmovie,setGeneros]=useState<Pelicula[]>([])
+ console.log(Generosmovie)
+const Api=async()=>{
+ try{
+ const fetchs = `https://api.themoviedb.org/3/discover/movie?api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&with_genres=${idgenero}`;
+   const api=await fetch(fetchs) 
+   if(api.status===200){
+      const data=await api.json()
+      setGeneros(data.results)
+   }
+}catch{
+    console.error("hubo un error en la peticion")
  }
-const Estrenos:FC<Props>= ({tipos,slug}) => {
-    const [estrenos,setestrenos]=useState <Pelicula[]>([])
-   console.log(estrenos)
-    const getApi=async()=>{
-                 
-                       try {  
-     
-                           const api = `https://api.themoviedb.org${slug}api_key=192e0b9821564f26f52949758ea3c473&language=es-MX&page=1`;
-                        const response=await fetch(api)
-                        if(response.status===200){
-                            const data=await response.json()
-                            setestrenos(data.results)
-                         console.log(data.results)
-                        }
-                       }catch{
-                          console.error("Error en la peticion")
-                       }
-                      
-                       
-               }
-        useEffect(()=>{
-               getApi()
-        },[])
-        
-   
-  return (
-   <>
-   <section>
-       <h3>{tipos}</h3>
-      <Swiper  spaceBetween={1}   breakpoints={{
+}
+useEffect(()=>{
+ Api()
+},[])
+    return (
+        <>
+    <section>
+        <h1>{tipo}</h1>
+    <Swiper  spaceBetween={1}   breakpoints={{
                 320: {
                   slidesPerView: 2,
                   spaceBetween: 2,
@@ -58,7 +53,7 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
               }} className="carrusel ">
       
          {
-            estrenos.map((item)=>
+            Generosmovie.map((item)=>
                <SwiperSlide key={item.id}>
                      <Link to={`/infopelicula/${item.id}`} className="poster">
                       <motion.div whileHover={{scale:1.1}}>
@@ -71,9 +66,8 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
             )
          }
       </Swiper>
-   </section>
-   </>
-  )
-}
+    </section>
+        </>
+    )
 
-export default Estrenos
+}

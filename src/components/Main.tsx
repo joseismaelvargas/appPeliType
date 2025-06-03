@@ -1,6 +1,7 @@
 
 import"../components/css/main.css"
 import Estrenos from "./peliscompents/Estrenos";
+import { Generos } from "./peliscompents/Generos";
  export interface Pelicula{
   
 adult: boolean;
@@ -25,7 +26,9 @@ const Main = () => {
   return (
     <section className="tendencias">
         
-    <Estrenos slug="now_playing?" tipos="estreno"></Estrenos>
+    <Estrenos slug="/3/movie/now_playing?" tipos="estreno"></Estrenos>
+            
+ <Generos idgenero={27} tipo="terror"></Generos>
     </section>
   )
 }
