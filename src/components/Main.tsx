@@ -26,9 +26,10 @@ const Main = () => {
   return (
     <section className="tendencias">
         
-    <Estrenos slug="/3/movie/now_playing?" tipos="estreno"></Estrenos>
+    <Estrenos slug="/3/movie/now_playing?" tipos="ESTRENO"></Estrenos>
             
- <Generos idgenero={27} tipo="terror"></Generos>
+    <Generos idgenero={18} tipo="DRAMA"></Generos>
+    <Generos idgenero={27} tipo="TERROR"></Generos>
     </section>
   )
 }

@@ -32,7 +32,10 @@ useEffect(()=>{
     return (
         <>
     <section>
-        <h1>{tipo}</h1>
+         <div className="title-tipo  ">
+           <h3 className="nunito-uniquifier-tipo ">{tipo}</h3>
+           <div className="linea-roja"></div>
+      </div>
     <Swiper  spaceBetween={1}   breakpoints={{
                 320: {
                   slidesPerView: 2,

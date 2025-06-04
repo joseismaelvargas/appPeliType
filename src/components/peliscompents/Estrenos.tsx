@@ -37,7 +37,11 @@ const Estrenos:FC<Props>= ({tipos,slug}) => {
   return (
    <>
    <section>
-       <h3>{tipos}</h3>
+      <div className="title-tipo  ">
+           <h3 className="nunito-uniquifier-tipo ">{tipos}</h3>
+           <div className="linea-roja"></div>
+      </div>
+     
       <Swiper  spaceBetween={1}   breakpoints={{
                 320: {
                   slidesPerView: 2,
