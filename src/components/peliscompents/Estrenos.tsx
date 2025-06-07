@@ -11,7 +11,7 @@ import {motion} from "framer-motion"
  }
 const Estrenos:FC<Props>= ({tipos,slug}) => {
     const [estrenos,setestrenos]=useState <Pelicula[]>([])
-   console.log(estrenos)
+
     const getApi=async()=>{
                  
                        try {  
