@@ -5,7 +5,7 @@ import "../components/css/section.css"
 const Infopelicula = () => {
   const [Info,setInfo]=useState <Pelicula[]>([])
   const [genero,setgenero]=useState<string>("")
-  console.log(Info)
+  
   const{id}=useParams()
   const idpparam=Number(id)
   const tipopelicula=JSON.parse(localStorage.getItem("genero") ||"0" )

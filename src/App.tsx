@@ -4,18 +4,17 @@ import Footer from "./common/Footer"
 import Main from "./components/Main"
 import Infopelicula from "./components/Infopelicula"
 import SearchPeli from "./components/SearchPeli"
-import { useState } from "react"
+
 function App() {
- const [buscar,setBuscar]=useState<string>("")
- console.log(buscar)
+ 
   return (
     <>
   
-  <Nav setBuscar={setBuscar}></Nav>
+  <Nav ></Nav>
   <Routes>
     <Route path="/" element={<Main></Main>}></Route>
     <Route path="/infopelicula/:id" element={<Infopelicula ></Infopelicula>}></Route>
-    <Route path="/searhmovie" element={<SearchPeli buscar={buscar} ></SearchPeli>}></Route>
+    <Route path="/searhmovie" element={<SearchPeli ></SearchPeli>}></Route>
   </Routes>
   <Footer></Footer>
 
