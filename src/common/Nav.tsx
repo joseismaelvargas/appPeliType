@@ -1,8 +1,21 @@
 import {useState} from "react"
 import "../common/css/navbar.css"
-import logo from "/img/logo.png"
-const Nav = () => {
+import { FaSearch } from "react-icons/fa";
+
+import { useNavigate } from "react-router-dom";
+
+const Nav= () => {
+     const [input,setInput]=useState<string>("")
      const [menu,setMenu]=useState(false)
+     const Nav=useNavigate()
+     
+
+     const guardar=(peli:string):void=>{
+        localStorage.setItem("pelimovie",JSON.stringify(peli))
+        Nav("/searhmovie")
+        location.reload()
+      
+     }
   return (
  <nav className="bg-black">
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -22,7 +35,7 @@ const Nav = () => {
           </svg>
         </button>
       </div>
-      <img  className="logo" src={logo} alt="logo" />
+ 
       <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-center">
         <div className="flex shrink-0 items-center">
         
@@ -38,13 +51,19 @@ const Nav = () => {
         </div>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-          <span className="absolute -inset-1.5"></span>
-          <span className="sr-only">View notifications</span>
-          <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-          </svg>
-        </button>
+        <div>
+  
+  <div className="mt-1">
+    <div className="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+      <FaSearch />
+      <div className="shrink-0 text-base text-gray-500 select-none sm:text-sm/6"></div>
+       <input type="text"  value={input} onChange={(e)=>setInput(e.target.value)}/>
+    
+    </div>
+  </div>
+
+</div>
+<button className="buttonnav text-amber-50" type="submit" onClick={()=>guardar(input)}>Search</button>
 
       
         <div className="relative ml-3">

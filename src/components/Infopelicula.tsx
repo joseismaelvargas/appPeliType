@@ -10,8 +10,7 @@ const Infopelicula = () => {
   const idpparam=Number(id)
   const tipopelicula=JSON.parse(localStorage.getItem("genero") ||"0" )
   const idtipo = Number(tipopelicula); 
-  console.log(idpparam)
-  console.log(idtipo)
+
   
   const getApi=async(id:number,slug:string)=>{
                    

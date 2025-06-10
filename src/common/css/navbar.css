@@ -7,3 +7,15 @@ a{
     height: 80px;
     margin: 0px 200px;
 }
+.buttonnav {
+    border: solid white 2px;
+    color: white;
+    padding: 6px 8px;
+    margin: 0px 18px;
+   border-radius: 10px;
+    cursor: pointer;
+}
+.buttonnav:hover{
+    background-color: white;
+    color: black;
+}
