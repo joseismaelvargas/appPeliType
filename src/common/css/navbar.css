@@ -1,6 +1,9 @@
-a{
-    font-size: 15px;
+.P-nav{
+    font-size: 20px;
     font-weight: bold;
+}
+.nav{
+    background-color: rgb(15, 15, 15);
 }
 .logo{
     width: 500px;
@@ -17,14 +20,24 @@ a{
     margin: 0pc 20px;
     border: red solid;
 }
-.logoinput{
- 
-    
+li{
+  list-style: none;
+  margin: 0px 15px;
+  color: white;
 }
+
+.subnav{
+
+    background-color: rgb(207, 17, 17);
+    justify-content: center;
+    width: 100%;  
+    height: 30px;
+}
+
 .input{
 
     background-color: rgb(255, 255, 255);
-    width: 190px;
+    width: 170px;
     height: 30px;
     margin: 0px 10px;
    border: none;
@@ -38,7 +51,7 @@ a{
     color: white;
     padding: 6px 8px;
     margin-left:20px ;
-    /* margin: 0px 18px 0px 20px; */
+
    border-radius: 10px;
     cursor: pointer;
 }
