@@ -10,6 +10,9 @@ footer{
     text-align: center;
     padding: 35px;
 }
+p{
+    font-size: 13px;
+}
 .redes{
  
     margin: 23px;
@@ -51,7 +54,9 @@ footer{
         
         justify-content: space-around;
     }
-   
+   p{
+    font-size: 15px;
+}
     .container{
         width: auto;
         display: flex;
