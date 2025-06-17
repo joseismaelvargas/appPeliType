@@ -11,9 +11,14 @@ const Nav= () => {
      
 
      const guardar=(peli:string):void=>{
+      if(peli.length>0){
         localStorage.setItem("pelimovie",JSON.stringify(peli))
         Nav("/searhmovie")
         location.reload()
+      }else{
+      location.reload()
+      }
+        
       
      }
   return (
