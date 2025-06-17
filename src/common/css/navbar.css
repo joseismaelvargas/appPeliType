@@ -1,5 +1,5 @@
 a{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 }
 .logo{
@@ -17,8 +17,16 @@ a{
     margin: 0pc 20px;
     border: red solid;
 }
+.logoinput{
+ 
+    
+}
 .input{
+
+    background-color: antiquewhite;
+    width: 190px;
     height: 30px;
+   border: none;
     border-radius: 10px;
     align-items: center;
     display: flex;
