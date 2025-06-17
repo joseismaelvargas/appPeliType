@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import  { useEffect,useState } from "react";
 import type  { Pelicula } from "./Main";
 import "../components/css/carrusel.css"
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,7 +7,8 @@ import {motion} from "framer-motion"
 
 
 const SearchPeli=() => {
-    const [search,setSearch]=useState<Pelicula[]>([])
+    const [morePopular,setmorePopular]=useState<Pelicula[]>([])
+    const [lessPopular,setlessPopular]=useState<Pelicula[]>([])
     const peli=JSON.parse(localStorage.getItem("pelimovie")||"0")
     const Search =async(query:string)=>{
        try{ 
@@ -16,8 +17,11 @@ const SearchPeli=() => {
      console.log(response)
     if(response.status===200){
        const data=await response.json()
-    
-       setSearch(data.results)
+       const resultados:Pelicula[]=data.results
+       const mita=Math.ceil(resultados.length/2)
+      setmorePopular(resultados.slice(0,mita))
+      setlessPopular(resultados.slice(mita))
+     
  }
        }catch{
      console.error("Error en la busqueda")
@@ -51,12 +55,45 @@ const SearchPeli=() => {
                   slidesPerView: 5.5,
                   spaceBetween: 2,
                 },
-              }} className="carrusel ">
+              }} className="carruselsearch">
       
          {
-            search.map((item)=>
+           morePopular.map((item)=>
                <SwiperSlide key={item.id}>
-                     <Link to={`/infopelicula/${item.id}`} className="poster">
+                     <Link to={`/InfoSearch/${item.id}`} className="poster">
+                      <motion.div whileHover={{scale:1.1}}>
+                           <motion.img  initial="inicial" animate="animate" className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="nunito-uniquifier-text">{item.title}</p>
+                      </motion.div>
+                      
+                     </Link>
+                     
+               </SwiperSlide>
+            )
+         }
+      </Swiper>
+       <Swiper  spaceBetween={1}   breakpoints={{
+                320: {
+                  slidesPerView: 2,
+                  spaceBetween: 2,
+                },
+                480: {
+                  slidesPerView: 2,
+                  spaceBetween: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 1,
+                },
+                1024: {
+                  slidesPerView: 5.5,
+                  spaceBetween: 2,
+                },
+              }} className="carruselsearch ">
+      
+         {
+           lessPopular.map((item)=>
+               <SwiperSlide key={item.id}>
+                     <Link to={`/InfoSearch/${item.id}`} className="poster">
                       <motion.div whileHover={{scale:1.1}}>
                            <motion.img  initial="inicial" animate="animate" className="img-movie" src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt={item.title} /><p className="nunito-uniquifier-text">{item.title}</p>
                       </motion.div>

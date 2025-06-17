@@ -5,13 +5,31 @@ a{
 .logo{
     width: 500px;
     height: 80px;
+
     margin: 0px 200px;
 }
+.iconsanwech{
+    border: solid rgb(255, 251, 251);
+    color: rgb(255, 254, 254);
+    margin: 0px;
+}
+.div-imput{
+    margin: 0pc 20px;
+    border: red solid;
+}
+.input{
+    height: 30px;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+}
 .buttonnav {
+
     border: solid white 2px;
     color: white;
     padding: 6px 8px;
-    margin: 0px 18px;
+    margin-left:20px ;
+    /* margin: 0px 18px 0px 20px; */
    border-radius: 10px;
     cursor: pointer;
 }
