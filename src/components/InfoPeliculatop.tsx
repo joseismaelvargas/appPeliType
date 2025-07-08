@@ -41,22 +41,34 @@ const Infopeliculatop= () => {
   return (
     <section className="nunito-uniquifier-section">
       {
-        Info.map((item)=>
-       <div className="container-info">
-        <img  className="img-info"src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
-          <div className="info-movie">
-           <h2 className="title">{item.title.toUpperCase()}</h2>
+    Info.map((item, index) => (
+      <div key={index}>
+        <div className="img-degrade">
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
+            alt="img"
            
-           <p className="info-text">{item.overview}</p>
-          
-           <p>Estreno:{item.release_date}</p>
-           <h2  className="title-origin"> title origin: {item.original_title.toLowerCase()}</h2>
-          </div>
-      
-       </div>
-    
-       )
-      }
+          />
+        </div>
+
+        <div className="container-info">
+          <img
+            className="img-info"
+            src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+            alt=""
+          /><div className="info-movie">
+          <h2 className="title">{item.title.toUpperCase()}</h2>
+          <p className="info-text">{item.overview}</p>
+          <p>Estreno: {item.release_date}</p>
+          <h2 className="title-origin">
+            title origin: {item.original_title.toLowerCase()}
+          </h2>
+        </div>
+        </div>
+
+        
+      </div>
+    ))}
       
     </section>
   )

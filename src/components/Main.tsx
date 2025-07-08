@@ -2,6 +2,7 @@
 import"../components/css/main.css"
 import Estrenos from "./peliscompents/Estrenos";
 import { Generos } from "./peliscompents/Generos";
+import CarruselMain from "./peliscompents/CarruselMain";
  export interface Pelicula{
   
 adult: boolean;
@@ -25,7 +26,7 @@ const Main = () => {
 
   return (
     <section className="tendencias">
-        
+        <CarruselMain></CarruselMain>
     <Estrenos slug="/3/movie/now_playing?" tipos="ESTRENO"></Estrenos>
             
     <Generos idgenero={18} tipo="DRAMA"></Generos>
