@@ -12,6 +12,10 @@
 
 
 }
+.hora{
+  font-weight: 500;
+  color: rgb(31, 166, 255);
+}
 .img-degrade-main::after {
   content: "";
  background-color: black;
@@ -54,6 +58,8 @@
     padding: 10px 8px ;
     color: white;
     width: 130px;
+  
+    cursor: pointer;
     border-radius: 10px;
     background-color: rgb(28, 126, 192);
   }

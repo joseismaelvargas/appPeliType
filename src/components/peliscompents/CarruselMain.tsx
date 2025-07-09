@@ -3,6 +3,7 @@ import { SwiperSlide,Swiper} from "swiper/react"
 import { Navigation,Autoplay } from "swiper/modules"
 import { useState,useEffect} from "react"
 import type { Pelicula } from "../Main"
+import { Link } from "react-router-dom"
 const CarruselMain = () => {
   const [Carrusel,setCarrusel]=useState<Pelicula[]>([])
   
@@ -60,7 +61,10 @@ const CarruselMain = () => {
                     <h1>{item.title}</h1> 
                        <p className="hora">{item.release_date}</p>
                     <p>{item.overview}</p> 
-                <button className="bottonver">Ver pelicula </button>
+ <Link to={`/infopeliculatop/${item.id}`} >
+          <button className="bottonver">Ver película</button>
+        </Link>
+                
                 </div>
            
              </div> 
