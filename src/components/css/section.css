@@ -58,7 +58,7 @@ bottom: 0;
 }
 .img-degrade{
   height: 700px;
-  border: green solid;
+
   margin: auto;
 }
 @media(min-width:758px){
